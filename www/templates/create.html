@@ -1,0 +1,36 @@
+{{ define "create" }}
+ 
+{{ template "header" }}
+ 
+<main role="main" class="inner cover">
+    <h1 class="cover-heading">Добавление</h1>
+    <form action="/save_article" method="post">
+        <input type="text" name="title" id="title" placeholder="Название" class="form-control" /><br>
+        <textarea name="idea" id="idea" class="form-control" placeholder="Введите идею" style="height: 100px;"></textarea><br>
+        <textarea name="article" id="article" class="form-control" placeholder="Введите полный текст" style="height: 270px;"></textarea><br>
+
+        <script>
+            const form = document.querySelector("form");
+            form.addEventListener("submit", (event) => {
+                if (document.getElementById("title").value === "") {
+                    alert("Пожалуйста, укажите название статьи.");
+                    event.preventDefault();
+                }
+                if (document.getElementById("idea").value === "") {
+                    alert("Пожалуйста, укажите идею статьи.");
+                    event.preventDefault();
+                }
+                if (document.getElementById("article").value === "") {
+                    alert("Пожалуйста, введите полный текст статьи.");
+                    event.preventDefault();
+                }
+            });
+        </script>
+
+        <button class="btn btn-warning">Опубликовать</button>
+    </form>
+</main>
+ 
+{{ template "footer" }}
+ 
+{{ end }}

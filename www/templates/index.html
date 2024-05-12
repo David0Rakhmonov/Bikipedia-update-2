@@ -1,0 +1,26 @@
+{{ define "index" }} 
+ 
+{{ template "header" }} 
+ 
+<main role="main" class="inner cover"> 
+  <h1 class="cover-heading">Новые статьи</h1> 
+  <p class="lead"></p> 
+ 
+  {{ range $index, $element := . }}
+    {{ if lt $index 2 }}
+      <div class="alert alert-danger"> 
+        <h2>{{ $element.Title }}</h2> 
+        <p>{{ $element.Idea }}</p> 
+        <a href="/post/{{ $element.Id }}" class="btn btn-danger">Развернуть</a> 
+      </div> 
+    {{ end }}
+  {{ else }} 
+    <p class="lead">Нету контента</p> 
+  {{ end }} 
+  
+  <a href="/all-articles" class="btn btn-primary">Больше статей</a>
+</main> 
+ 
+{{ template "footer" }} 
+ 
+{{ end }}

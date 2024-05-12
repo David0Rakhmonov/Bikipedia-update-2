@@ -1,0 +1,33 @@
+{{ define "watch" }} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: #333; color: white; padding: 20px; font-size: 1.2em;">
+
+<main>
+    <article style="text-align: left; padding: 10px;">
+        <h2 style="font-size: 1.7em;">{{ .Title }}</h2>
+        <p style="font-size: 1.em;">{{ .Article}}</p>
+    </article>
+</main>
+
+{{ template "header" }}
+
+<main role="main" class="inner cover">
+  <p class="lead">
+    <a href="/" class="btn btn-lg btn-secondary">Назад</a>
+  </p>
+</main>
+
+<hr>
+
+</body>
+</html>
+
+{{ template "footer" }}
+
+{{ end }}

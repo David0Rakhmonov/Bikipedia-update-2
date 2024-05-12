@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form action="/register" method="POST">
+        <label for="username">Имя пользователя:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+</body>
+</html> -->
+
+
+{{ define "register" }} 
+ 
+{{ template "header" }} 
+    <h1>Регистрация</h1>
+    <form action="/register" method="post">
+        <label for="username">Имя пользователя:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        
+        <input type="submit" value="Зарегистрироваться">
+        <script>
+            const form = document.querySelector("form");
+            form.addEventListener("submit", (event) => {
+                if (document.getElementById("username").value === "") {
+                    alert("Пожалуйста, укажите ник для вашего аккаунта.");
+                    event.preventDefault();
+                }
+                if (document.getElementById("password").value === "") {
+                    alert("Пожалуйста, укажите пароль для вашего аккаунта");
+                    event.preventDefault();
+                }
+            });
+        </script>
+    </form>
+</main> 
+
+{{ template "footer" }} 
+ 
+{{ end }}

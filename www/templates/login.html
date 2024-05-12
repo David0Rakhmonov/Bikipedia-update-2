@@ -1,0 +1,31 @@
+{{ define "login" }} 
+ 
+{{ template "header" }} 
+
+    <h1>Вход</h1>
+    <form method="post" action="/login">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Войти">
+        <script>
+            const form = document.querySelector("form");
+            form.addEventListener("submit", (event) => {
+                if (document.getElementById("username").value === "") {
+                    alert("Пожалуйста, укажите ник для вашего аккаунта.");
+                    event.preventDefault();
+                }
+                if (document.getElementById("password").value === "") {
+                    alert("Пожалуйста, укажите пароль для вашего аккаунта");
+                    event.preventDefault();
+                }
+            });
+        </script>
+    </form>
+</main>
+{{ template "footer" }} 
+ 
+{{ end }}
